@@ -1,4 +1,7 @@
-#home {
-    color: black;
-    font-size: 24px;
+.blue-border {
+    border: 3px solid blue;
   }
+  
+.blue-border:hover {
+border-style: dotted;
+}
