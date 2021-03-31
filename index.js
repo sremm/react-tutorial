@@ -1,33 +1,37 @@
 let createElement = React.createElement
 
-const square = createElement(
-    'div',
-    {
-        // The `style` prop accepts an object of styles
-        style: {
-            width: '100px',
-            height: '100px',
-            backgroundColor: 'red',
-            margin: '10px',
-        }
-    }
-)
-
-const container = createElement(
-    'div',
-    {
-        // The `className` prop set's the element's CSS class.
-        // The `blue-border` class is defined in styles.css.
-        className: 'blue-border',
+let rootElement =
+    createElement('div', {
     },
+        createElement('h1', { className: "ContactList-title" }, "Contacts"),
+        createElement('div', { className: 'ContactList' },
+            createElement(
+                'div',
+                { className: "Contact" },
+                createElement('div', { className: "Contact-avatar" }, "JN"),
+                createElement('span', { className: "Contact-name" }, "James Nelson"),
+                createElement(
+                    'a',
+                    { href: 'mailto:james@frontarm.com' },
+                    "james@frontarm.com",
+                ),
 
-    // The remaining arguments list the element's children
-    square,
-    square,
-    square
-)
+            ),
+            createElement(
+                'div',
+                { className: "Contact" },
+                createElement('div', { className: "Contact-avatar" }, "M"),
+                createElement('span', { className: "Contact-name" }, "Me"),
+                createElement(
+                    'a',
+                    { href: 'mailto:me@example.com' },
+                    "me@example.com"
+                )
+            )
+        )
+    )
 
-ReactDOM.render(
-    container,
-    document.getElementById('root')
-)
+// The `ReactDOM` variable is set by the second `<script>` tag
+// in the above HTML file
+let domNode = document.getElementById('root')
+ReactDOM.render(rootElement, domNode)
