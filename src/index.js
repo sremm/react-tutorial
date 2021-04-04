@@ -13,12 +13,18 @@ function getInitials(name) {
 
 function createContactElement(contact, index, array) {
   let result = <div className='Contact' key={index}>
-    <div className='Contact-avatar'>{getInitials(contact.name)}</div>
+    <div className='Contact-avatar'>
+      {getInitials(contact.name)}
+      {contact.photoURL && <img alt="" src={contact.photoURL}></img>}
+    </div>
     <span className='Contact-name'>{contact.name}</span>
     <a href={'mailto:' + contact.email}>
       {contact.email}
     </a>
   </div>
+
+
+
   return result
 }
 let elements = billionaires.map(createContactElement)
