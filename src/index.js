@@ -1,12 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles.css'
+import { billionaires } from './billionaires.js'
 
-let billionaires = [
-  { name: 'Bill Gates', email: 'billg@microsoft.com' },
-  { name: 'Jeff Bezos', email: 'jeff@amazon.com' },
-  { name: 'Mark Zuckerberg', email: 'zuck@fb.com' },
-]
 
 function getInitials(name) {
   var firstNameInitial = name.split(" ")[0][0]
