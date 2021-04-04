@@ -14,22 +14,18 @@ function getInitials(name) {
   var result = firstNameInitial + lastNameInitial
   return result
 }
-var billionairesList = []
-for (const billionare of billionaires) {
-  billionairesList.push(
-    <div className='Contact'>
-      <div className='Contact-avatar'>{getInitials(billionare.name)}</div>
-      <span className='Contact-name'>{billionare.name}</span>
-      <a href={'mailto:' + billionare.email}>
-        {billionare.email}
-      </a>
-    </div>
-  )
 
+function createContactElement(contact, index, array) {
+  let result = <div className='Contact' key={index}>
+    <div className='Contact-avatar'>{getInitials(contact.name)}</div>
+    <span className='Contact-name'>{contact.name}</span>
+    <a href={'mailto:' + contact.email}>
+      {contact.email}
+    </a>
+  </div>
+  return result
 }
-
-// Your React elements will go here.
-let elements = billionairesList
+let elements = billionaires.map(createContactElement)
 
 // Use a for loop or array.map to build the elements array
 
