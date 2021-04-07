@@ -6,12 +6,11 @@ import { Contact } from "./Contact.js"
 
 
 function ContactList(props) {
-  let elements = props.billionaires.map(function (contact, index) { return <Contact contact={contact} key={index}></Contact> })
-  return <div className='ContactList'>{elements}</div>
+  return <div className='ContactList'>{props.children}</div>
 }
 
-
+let contactElements = billionaires.map(function (contact, index) { return <Contact contact={contact} key={index}></Contact> })
 ReactDOM.render(
-  <ContactList billionaires={billionaires}></ContactList>,
+  <ContactList >{contactElements}</ContactList>,
   document.getElementById('root')
 )
