@@ -11,8 +11,9 @@ function getInitials(name) {
   return result
 }
 
-function createContactElement(contact, index, array) {
-  let result = <div className='Contact' key={index}>
+function Contact(props) {
+  const contact = props.contact;
+  return <div className='Contact' key={props.index}>
     <div className='Contact-avatar'>
       {getInitials(contact.name)}
       {contact.photoURL && <img alt="" src={contact.photoURL}></img>}
@@ -22,16 +23,15 @@ function createContactElement(contact, index, array) {
       {contact.email}
     </a>
   </div>
-
-
-
-  return result
 }
-let elements = billionaires.map(createContactElement)
 
-// Use a for loop or array.map to build the elements array
+function ContactList(props) {
+  let elements = props.billionaires.map(function (contact, index) { return <Contact contact={contact} key={index}></Contact> })
+  return <div className='ContactList'>{elements}</div>
+}
+
 
 ReactDOM.render(
-  <div className='ContactList'>{elements}</div>,
+  <ContactList billionaires={billionaires}></ContactList>,
   document.getElementById('root')
 )
